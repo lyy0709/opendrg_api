@@ -34,3 +34,9 @@ curl -X POST "http://127.0.0.1:5000/api/group" \
   "age_days": 21, #新生儿出生天数
   "weight": 3200 #体重
 ```
+
+## 增加docker运行
+
+```
+docker compose up -d
+```
