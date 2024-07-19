@@ -1,7 +1,7 @@
 import requests
 import json
 
-url = "http://59.110.169.173:5000/api/group"
+url = "http://127.0.0.1:5000/api/group"
 
 payload = {
     "main_zd": "Z51.103",
