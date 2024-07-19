@@ -176,6 +176,19 @@ def group_record():
 
     errors.extend([f'zd_errors: {err}' for err in convert_errors['zd_errors'] if err])
     errors.extend([f'ss_errors: {err}' for err in convert_errors['ss_errors'] if err])
+
+    # 检查age是否大于等于0
+    if data['age'] < 0:
+        errors.append('Age cannot be less than 0')
+
+    # 如果age大于0小于1，确保age_days存在且大于0
+    if 0 < data['age'] < 1:
+        if 'age_days' not in data or data['age_days'] <= 0:
+            errors.append('For ages between 0 and 1 year, age_days must be greater than 0')
+
+    # 如果age_days存在，确保其不小于0
+    if 'age_days' in data and data['age_days'] < 0:
+        errors.append('age_days cannot be less than 0')
     
     record = MedicalRecord(
         Index='1',  # Dummy value for Index
